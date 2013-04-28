@@ -1,4 +1,7 @@
 CodeShare::Application.routes.draw do
+
+  root :to => "sessions#new"
+
   get "admin" => 'admin#index'
 
   controller :sessions do
@@ -10,6 +13,8 @@ CodeShare::Application.routes.draw do
   resources :users
 
   get "users/index"
+
+  match 'users/:id' => 'users#show'
 
 
   # The priority is based upon order of creation:
