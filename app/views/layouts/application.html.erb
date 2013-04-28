@@ -15,13 +15,15 @@
 	</ul>
 
 	<% if session[:user_id] %>
-	<p>Admin Tools</p>
-	<ul>
-		<li><%= link_to 'Manage Users', users_path %></li>
-	</ul>
-	<%= button_to 'Logout', logout_path, method: :delete %>
+		<% if @current_user.isAdmin %>
+			<p>Admin Tools</p>
+			<ul>
+				<li><%= link_to 'Manage Users', users_path %></li>
+			</ul>
+		<% end %>
+		<%= button_to 'Logout', logout_path, method: :delete %>
 	<% else %>
-	<%= button_to 'Login', login_path, method: :new %>
+		<%= button_to 'Login', login_path, method: :new %>
 	<% end %>
 
 <%= yield %>
