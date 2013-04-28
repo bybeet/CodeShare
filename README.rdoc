@@ -1,3 +1,8 @@
+Travis Bybee
+CSCI446 Project
+
+Heroku URL: http://floating-savannah-6376.herokuapp.com/
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
