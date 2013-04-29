@@ -1,7 +1,5 @@
 CodeShare::Application.routes.draw do
-
-  root :to => "sessions#new"
-
+  
   get "admin" => 'admin#index'
 
   controller :sessions do
