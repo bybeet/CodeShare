@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   		if user.isAdmin
   			redirect_to admin_url
   		else
-  			redirect_to users_path
+  			redirect_to user_path(user.id)
   		end
   	else
   		redirect_to login_url, alert: "Invalid user/password combination"
@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
 
   def destroy
   	session[:user_id] = nil
-  	redirect_to root_url, notice: "Logged out"
+  	redirect_to login_url, notice: "Logged out"
   end
 end

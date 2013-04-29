@@ -83,4 +83,13 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def manage
+    @users = User.order(:name)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
 end

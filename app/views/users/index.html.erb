@@ -1,8 +1,6 @@
-<h1>Listing users</h1>
-  <% if notice %>
-  <p id="notice"><%= notice %></p>
-  <% end %>
+<% if @current_user.isAdmin %>
 
+<h1>Manage Users</h1>
 <table>
   <tr>
     <th>Name</th>
@@ -26,3 +24,28 @@
 <br />
 
 <%= link_to 'New User', new_user_path %>
+
+<% else %>
+
+<h1>Listing users</h1>
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% end %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= link_to 'Show', user %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% end %>
